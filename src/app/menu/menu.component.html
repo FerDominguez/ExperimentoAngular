@@ -1,0 +1,30 @@
+<mat-toolbar color="primary" class="fijar">
+  <button
+    type="button"
+    aria-label="Toggle sidenav"
+    mat-icon-button
+    (click)="drawer.toggle()">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+  <span>Material + Bootstrap</span>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'over'"
+      [opened]="(isHandset$ | async) === true">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/home" (click)="drawer.toggle()">Inicio</a>
+      <a mat-list-item routerLink="/pokemon" (click)="drawer.toggle()">Pokemon</a>
+      <a mat-list-item routerLink="/starWars" (click)="drawer.toggle()">Star Wars</a>
+      <a mat-list-item routerLink="/studiosGibli" (click)="drawer.toggle()">Studio Gibli</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    
+    <router-outlet></router-outlet>
+    
+  </mat-sidenav-content>
+</mat-sidenav-container>

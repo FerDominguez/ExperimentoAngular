@@ -1,0 +1,222 @@
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">movie</mat-icon>
+      Films
+    </ng-template>
+    <div class="container">
+      <div class="row" *ngIf="films != null; else espera">
+        <div class="col-lg-4 col-md-6" *ngFor="let film of films">
+          <div class="card mb-3">
+            <div class="card-header">{{ film.episode_id }} - {{ film.title }}</div>
+            <div class="card-body">
+              <p><span>Director:</span>{{ film.director }}</p>
+              <p><span>Producer:</span>{{ film.producer }}</p>
+              <p><span>Release date:</span>{{ film.release_date }}</p>
+              <p><span>Opening Crawl:</span>{{ film.opening_crawl }}</p>
+            </div>
+            <div class="card-footer bg-dark shadow-inf shadow-sup">
+              <div class="lightsaber">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">account_circle</mat-icon>
+      People
+    </ng-template>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6" *ngFor="let people of peoples">
+          <div class="card mb-3" style="margin-top: 15px;">
+            <div class="card-header">
+              <h5 class="card-title">{{people.name }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Character Data</h6>
+            </div>
+            <div class="card-body" style="margin-top:-15px">
+              <p><span>Height: </span>{{ people.height }}</p>
+              <p><span>Mass: </span>{{ people.mass }}</p>
+              <p><span>Hair Color: </span>{{ people.hair_color }}</p>
+              <p><span>Eye Color: </span>{{ people.eye_color }}</p>
+              <p><span>Skin Color: </span>{{ people.skin_color }}</p>
+              <p><span>Birth Year: </span>{{ people.birth_year }}</p>
+              <p><span>Gender: </span>{{ people.gender }}</p>
+              <p><span>Homeworld: </span>{{ people.homeworld }}</p>
+              <p><span>Specie: </span>{{ people.species }}</p>
+              <div *ngIf="people.vehicles.length != 0">
+                <p><span>vehicle: </span></p>
+                <ul *ngFor="let vehicle of people.vehicles">
+                  <li>{{ vehicle }}</li>
+                </ul>
+              </div>
+              <div *ngIf="people.starships.length != 0">
+                <p><span>starship: </span></p>
+                <ul *ngFor="let starship of people.starships">
+                  <li>{{ starship }}</li>
+                </ul>
+              </div>
+            </div>
+            <div class="card-footer bg-dark shadow-inf shadow-sup">
+              <div class="lightsaber">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">group</mat-icon>
+      Species
+    </ng-template>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6" *ngFor="let specie of species">
+          <div class="card mb-3" style="margin-top: 15px;">
+            <div class="card-header">
+              <h5 class="card-title">{{ specie.name }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{specie.classification}}</h6>
+            </div>
+            <div class="card-body">
+              <p><span>Designation: </span>{{ specie.designation }}</p>
+              <p><span>Average Height: </span>{{ specie.average_height }}</p>
+              <p><span>Skin Colors: </span>{{ specie.skin_colors }}</p>
+              <p><span>Hair Colors: </span>{{ specie.hair_colors }}</p>
+              <p><span>Eye Colors: </span>{{ specie.eye_colors }}</p>
+              <p><span>Average Lifespan: </span>{{ specie.average_lifespan }}</p>
+              <p><span>Language: </span>{{ specie.language }}</p>
+            </div>
+            <div class="card-footer bg-dark shadow-inf shadow-sup">
+              <div class="lightsaber">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">vpn_lock</mat-icon>
+      Planets
+    </ng-template>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6" *ngFor="let planet of planets">
+          <div class="card mb-3" style="margin-top: 15px;">
+            <div class="card-header">
+              <h5 class="card-title">{{ planet.name }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Technical Data</h6>
+            </div>
+            <div class="card-body">
+              <p><span>Rotation Period: </span>{{ planet.rotation_period }}</p>
+              <p><span>Orbital Period: </span>{{ planet.orbital_period }}</p>
+              <p><span>Diameter: </span>{{ planet.diameter }}</p>
+              <p><span>Climate: </span>{{ planet.climate }}</p>
+              <p><span>Gravity: </span>{{ planet.gravity }}</p>
+              <p><span>Terrain: </span>{{ planet.terrain }}</p>
+              <p><span>Surface Water: </span>{{ planet.surface_water }}</p>
+              <p><span>Population: </span>{{ planet.population }}</p>
+            </div>
+            <div class="card-footer bg-dark shadow-inf shadow-sup">
+              <div class="lightsaber">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">drive_eta</mat-icon>
+      Vehicles
+    </ng-template>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6" *ngFor="let vehicle of vehicles">
+          <div class="card mb-3" style="margin-top: 15px;">
+            <div class="card-header">
+              <h5 class="card-title">{{ vehicle.name }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ vehicle.model }}</h6>
+            </div>
+            <div class="card-body">
+              <p><span>manufacturer: </span>{{ vehicle.manufacturer }}</p>
+              <p><span>cost_in_credits: </span>{{ vehicle.cost_in_credits }}</p>
+              <p><span>length: </span>{{ vehicle.length }}</p>
+              <p><span>max_atmosphering_speed: </span>{{ vehicle.max_atmosphering_speed }}</p>
+              <p><span>crew: </span>{{ vehicle.crew }}</p>
+              <p><span>passengers: </span>{{ vehicle.passengers }}</p>
+              <p><span>cargo_capacity: </span>{{ vehicle.cargo_capacity }}</p>
+              <p><span>consumables: </span>{{ vehicle.consumables }}</p>
+              <p><span>vehicle_class: </span>{{ vehicle.vehicle_class }}</p>
+            </div>
+            <div class="card-footer bg-dark shadow-inf shadow-sup">
+              <div class="lightsaber">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">location_searching</mat-icon>
+      Starships
+    </ng-template>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6" *ngFor="let starship of starships">
+          <div class="card mb-3" style="margin-top: 15px;">
+            <div class="card-header">
+              <h5 class="card-title">{{ starship.name }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ starship.model }}</h6>
+            </div>
+            <div class="card-body">
+              <p><span>Manufacturer: </span>{{ starship.manufacturer }}</p>
+              <p><span>Cost in Credits: </span>{{ starship.cost_in_credits }}</p>
+                <p><span>Length: </span>{{ starship.length }}</p>
+                <p><span>Max Atmosphering Speed: </span>{{ starship.max_atmosphering_speed }}</p>
+                <p><span>Crew: </span>{{ starship.crew }}</p>
+                <p><span>Passengers: </span>{{ starship.passengers }}</p>
+                <p><span>Cargo Capacity: </span>{{ starship.cargo_capacity }}</p>
+                <p><span>Consumables: </span>{{ starship.consumables }}</p>
+                <p><span>Hyperdrive Rating: </span>{{ starship.hyperdrive_rating }}</p>
+                <p><span>MGLT: </span>{{ starship.MGLT }}</p>
+                <p><span>Starship Class: </span>{{ starship.starship_class }}</p>
+            </div>
+            <div class="card-footer bg-dark shadow-inf shadow-sup">
+              <div class="lightsaber">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+
+<ng-template #espera>
+  <div class="d-flex justify-content-center">
+    <div class="spinner-grow text-warning" style="width: 1rem; height: 1rem" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-warning" style="width: 3rem; height: 3rem" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-warning" style="width: 5rem; height: 5rem" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</ng-template>

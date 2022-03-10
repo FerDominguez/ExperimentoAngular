@@ -1,0 +1,8 @@
+.img-sm{
+    width:373px;
+    height: 373px;
+}
+
+.shadow-png{
+    filter: drop-shadow(5px 5px 10px black);
+}

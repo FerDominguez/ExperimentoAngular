@@ -1,0 +1,66 @@
+<div class="container">
+  <!--espacio para el input que filtrara-->
+  <div class="row">
+    <mat-form-field class="bar-search">
+        <mat-label>Buscar</mat-label>
+        <input
+          matInput
+          (keyup)="applyFilter($event)"
+          placeholder="Ej. bulbasaur"
+        />
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+  </div>
+  <!--espacio para las tarjetas-->
+  <div class="row" *ngIf="obs != null; else espera">
+    <div class="col-lg-4 col-md-6" *ngFor="let pokemon of obs | async">
+      <div class="card mb-3" style="max-width: 540px">
+        <div class="row g-0">
+          <div class="col-sm-4 col">
+            <img
+              src="{{ pokemon.sprites }}"
+              class="img-fluid rounded-start"
+              alt="..."
+            />
+          </div>
+          <div class="col-sm-8 col">
+            <div class="card-body">
+              <h5 class="card-title">{{ pokemon.name | uppercase }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">({{ pokemon.species | uppercase }})</h6>
+              <p class="card-text text-capitalize">
+                {{ pokemon.name }} is an {{ pokemon.types }} type Pokemon, with
+                a weight of {{ pokemon.weight }}, it has to evolve in the
+                following forms: {{ pokemon.forms }}.
+              </p>
+              <p class="card-text">
+                <small class="text-muted">
+                  <a routerLink="/pokemon/details/{{pokemon.name}}">More Details >>></a>
+                </small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #espera>
+    <div class="d-flex justify-content-center">
+      <div class="spinner-grow text-warning" style="width: 1rem; height: 1rem;" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-warning" style="width: 3rem; height: 3rem;" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-warning" style="width: 5rem; height: 5rem;" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </ng-template>
+  <!--espacio para el footer o paginacion-->
+  <div class="row">
+    <mat-paginator [pageSizeOptions]="[12, 24, 48, 72]"
+    showFirstLastButtons>
+    </mat-paginator>
+  </div>
+</div>

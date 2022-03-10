@@ -1,0 +1,196 @@
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">movie</mat-icon>
+      Films
+    </ng-template>
+    <div class="container">
+      <div class="row" *ngIf="films != null; else espera">
+        <div class="col-md-6 col-lg-4" *ngFor="let film of films">
+          <div class="card mb-3 overflow-auto"  style="margin-top:1.5rem">
+            <div class="card-header bg-transparent">
+              <div class="row">
+                <div class="col-md-3">
+                  <img
+                    src="{{ film.movie_banner }}"
+                    class="card-img-bottom img-perf"
+                    alt="..."
+                  />
+                </div>
+                <div class="col">
+                  <h5 class="card-title">{{ film.title }}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">
+                    ({{ film.original_title }} ~
+                    {{ film.original_title_romanised }})
+                  </h6>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <img src="{{ film.image }}" class="card-img-bottom img-tarj" alt="..." />
+            </div>
+            <div class="card-footer bg-transparent" style="max-height: 30rem; min-height:30rem">
+              <p><span>Director:</span> {{ film.director }}</p>
+              <p><span>Producer:</span> {{ film.producer }}</p>
+              <p><span>Release Date:</span> {{ film.release_date }}</p>
+              <p><span>Running Time:</span> {{ film.running_time }}</p>
+              <p><span>Description:</span> {{ film.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">account_circle</mat-icon>
+      People
+    </ng-template>
+    <div class="container">
+      <div class="row" *ngIf="obs != null; else espera">
+        <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let people of obs | async">
+          <div class="card mb-3 overflow-auto" style="max-width: 18rem; min-height: 25rem">
+            <div class="card-header">
+              <h5 class="card-title">{{ people.name }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                {{ people.species }}
+              </h6>
+            </div>
+            <div class="card-body">
+              <p><span>Gender:</span> {{ people.gender }}</p>
+              <p><span>Age:</span> {{ people.age }}</p>
+              <p><span>Eye Color:</span> {{ people.eye_color }}</p>
+              <p><span>Hair Color:</span> {{ people.hair_color }}</p>
+              <p><span>films:</span></p>
+              <ul *ngFor="let film of people.films">
+                <li>{{ film }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--paginator-->
+      <div class="row">
+        <mat-paginator
+          [pageSizeOptions]="[16, 32, 48]"
+          showFirstLastButtons
+        >
+        </mat-paginator>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">group</mat-icon>
+      Species
+    </ng-template>
+    <div class="container">
+      <div class="row" *ngIf="species != null; else espera">
+        <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let specie of species">
+          <div class="card mb-3" style="max-width: 18rem">
+            <div class="card-header">
+              <h5 class="card-title">{{ specie.name }}</h5>
+            </div>
+            <div class="card-body">
+              <p><span>Classification:</span> {{ specie.classification }}</p>
+              <p><span>Eye Colors:</span> {{ specie.eye_colors }}</p>
+              <p><span>Hair Colors:</span> {{ specie.hair_colors }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">room</mat-icon>
+      Locations
+    </ng-template>
+    <div class="container">
+      <div class="row" *ngIf="locations != null; else espera">
+        <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let location of locations">
+          <div class="card mb-3" style="max-width: 18rem">
+            <div class="card-header">
+              <h5 class="card-title">{{ location.name }}</h5>
+            </div>
+            <div class="card-body">
+              <p><span>Climate:</span> {{ location.climate }}</p>
+              <p><span>Terrain:</span> {{ location.terrain }}</p>
+              <p><span>Surface_water:</span> {{ location.surface_water }}</p>
+              <p><span>Residents:</span></p>
+              <ul
+                class="list-group list-group-flush"
+                *ngFor="let resident of location.residents"
+              >
+                <li class="list-group-item">{{ resident }}</li>
+              </ul>
+              <p><span>Films:</span></p>
+              <ul
+                class="list-group list-group-flush"
+                *ngFor="let film of location.films"
+              >
+                <li class="list-group-item">{{ film }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">local_shipping</mat-icon>
+      Vehicles
+    </ng-template>
+    <div class="container">
+      <div class="row" *ngIf="vehicles != null; else espera">
+        <div class="col-sm-6 col-md-4" *ngFor="let vehicle of vehicles">
+          <div class="card mb-3" style="max-width: 18rem">
+            <div class="card-header">
+              <h5 class="card-title">{{ vehicle.name }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                {{ vehicle.vehicle_class }}
+              </h6>
+            </div>
+            <div class="card-body">
+              <p><span>Pilot:</span> {{ vehicle.pilot }}</p>
+              <p><span>Films:</span> {{ vehicle.films }}</p>
+              <p><span>length:</span> {{ vehicle.length }}</p>
+              <p><span>Description:</span> {{ vehicle.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+
+<ng-template #espera>
+  <div class="d-flex justify-content-center">
+    <div
+      class="spinner-grow text-warning"
+      style="width: 1rem; height: 1rem"
+      role="status"
+    >
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div
+      class="spinner-grow text-warning"
+      style="width: 3rem; height: 3rem"
+      role="status"
+    >
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div
+      class="spinner-grow text-warning"
+      style="width: 5rem; height: 5rem"
+      role="status"
+    >
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</ng-template>
