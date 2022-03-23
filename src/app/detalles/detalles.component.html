@@ -1,103 +1,208 @@
 <div class="container">
   <div class="row" *ngIf="pkemon != null && genInfo != null; else espera">
-    <div class="card" style="margin-top:10px; min-height: 32rem; max-height: 32rem;">
+    <div
+      class="card"
+      style="margin-top: 10px; min-height: 32rem; max-height: 32rem"
+    >
       <div class="row g-0">
         <div class="col-sm-4 col">
-          <div id="carouselExampleControlsNoTouching" class="carousel slide carousel-dark" data-bs-ride="carousel">
+          <div
+            id="carouselExampleControlsNoTouching"
+            class="carousel slide carousel-dark"
+            data-bs-ride="carousel"
+          >
             <div class="carousel-inner">
-              <div class="carousel-item active" *ngIf="pkemon.sprites.front_default!==null">
-                <img src="{{ pkemon.sprites.front_default }}" class="d-block w-100" alt="...">
+              <div
+                class="carousel-item active"
+                *ngIf="pkemon.sprites.front_default !== null"
+              >
+                <img
+                  src="{{ pkemon.sprites.front_default }}"
+                  class="d-block w-100"
+                  alt="..."
+                />
                 <div class="carousel-caption d-none d-md-block">
                   <h6>Front default image</h6>
                 </div>
               </div>
-              <div class="carousel-item" *ngIf="pkemon.sprites.back_default!==null">
-                <img src="{{ pkemon.sprites.back_default }}" class="d-block w-100" alt="...">
+              <div
+                class="carousel-item"
+                *ngIf="pkemon.sprites.back_default !== null"
+              >
+                <img
+                  src="{{ pkemon.sprites.back_default }}"
+                  class="d-block w-100"
+                  alt="..."
+                />
                 <div class="carousel-caption d-none d-md-block">
                   <h6>Back default image</h6>
                 </div>
               </div>
-              <div class="carousel-item" *ngIf="pkemon.sprites.front_female!==null">
-                <img src="{{ pkemon.sprites.front_female }}" class="d-block w-100" alt="...">
+              <div
+                class="carousel-item"
+                *ngIf="pkemon.sprites.front_female !== null"
+              >
+                <img
+                  src="{{ pkemon.sprites.front_female }}"
+                  class="d-block w-100"
+                  alt="..."
+                />
                 <div class="carousel-caption d-none d-md-block">
                   <h6>Front female image</h6>
                 </div>
               </div>
-              <div class="carousel-item" *ngIf="pkemon.sprites.back_female!==null">
-                <img src="{{ pkemon.sprites.back_female }}" class="d-block w-100" alt="...">
+              <div
+                class="carousel-item"
+                *ngIf="pkemon.sprites.back_female !== null"
+              >
+                <img
+                  src="{{ pkemon.sprites.back_female }}"
+                  class="d-block w-100"
+                  alt="..."
+                />
                 <div class="carousel-caption d-none d-md-block">
                   <h6>Back female image</h6>
                 </div>
               </div>
-              <div class="carousel-item" *ngIf="pkemon.sprites.front_shiny!==null">
-                <img src="{{ pkemon.sprites.front_shiny }}" class="d-block w-100" alt="...">
+              <div
+                class="carousel-item"
+                *ngIf="pkemon.sprites.front_shiny !== null"
+              >
+                <img
+                  src="{{ pkemon.sprites.front_shiny }}"
+                  class="d-block w-100"
+                  alt="..."
+                />
                 <div class="carousel-caption d-none d-md-block">
                   <h6>Front shiny image</h6>
                 </div>
               </div>
-              <div class="carousel-item" *ngIf="pkemon.sprites.back_shiny!==null">
-                <img src="{{ pkemon.sprites.back_shiny }}" class="d-block w-100" alt="...">
+              <div
+                class="carousel-item"
+                *ngIf="pkemon.sprites.back_shiny !== null"
+              >
+                <img
+                  src="{{ pkemon.sprites.back_shiny }}"
+                  class="d-block w-100"
+                  alt="..."
+                />
                 <div class="carousel-caption d-none d-md-block">
                   <h6>Back shiny image</h6>
                 </div>
               </div>
-              <div class="carousel-item" *ngIf="pkemon.sprites.front_shiny_female!==null">
-                <img src="{{ pkemon.sprites.front_shiny_female }}" class="d-block w-100" alt="...">
+              <div
+                class="carousel-item"
+                *ngIf="pkemon.sprites.front_shiny_female !== null"
+              >
+                <img
+                  src="{{ pkemon.sprites.front_shiny_female }}"
+                  class="d-block w-100"
+                  alt="..."
+                />
                 <div class="carousel-caption d-none d-md-block">
                   <h6>Front shiny female image</h6>
                 </div>
               </div>
-              <div class="carousel-item" *ngIf="pkemon.sprites.back_shiny_female!==null">
-                <img src="{{ pkemon.sprites.back_shiny_female }}" class="d-block w-100" alt="...">
+              <div
+                class="carousel-item"
+                *ngIf="pkemon.sprites.back_shiny_female !== null"
+              >
+                <img
+                  src="{{ pkemon.sprites.back_shiny_female }}"
+                  class="d-block w-100"
+                  alt="..."
+                />
                 <div class="carousel-caption d-none d-md-block">
                   <h6>Back shiny female image</h6>
                 </div>
               </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleControlsNoTouching"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
               <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleControlsNoTouching"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
               <span class="visually-hidden">Next</span>
             </button>
           </div>
         </div>
-        <div class="col-sm-8 col" style="min-height: 32rem; max-height: 32rem; overflow:auto">
+        <div
+          class="col-sm-8 col"
+          style="min-height: 32rem; max-height: 32rem; overflow: auto"
+        >
           <div class="card-body">
             <div class="clearfix">
-              <a routerLink="/pokemon" class="btn-close float-end" aria-label="Close"></a>
-              <h5 class="card-title float-star">{{pkemon.name | uppercase}}</h5>
-              <h6 class="card-subtitle mb-2 text-muted float-star">({{pkemon.species.name}} - {{ pkemon.species.name }})</h6>
+              <a
+                routerLink="/pokemon"
+                class="btn-close float-end"
+                aria-label="Close"
+              ></a>
+              <h5 class="card-title float-star">
+                {{ pkemon.name | uppercase }}
+              </h5>
+              <h6 class="card-subtitle mb-2 text-muted float-star">
+                ({{ pkemon.species.name }} - {{ pkemon.species.name }})
+              </h6>
             </div>
             <mat-tab-group>
               <mat-tab label="General information">
                 <p class="card-text">
-                  <span class="text-capitalize">{{ pkemon.name }}</span> is a pokemon of type {{ pkemon.types }}, of color {{ genInfo.color.name }}
-                  and with a weight of {{ pkemon.weight }}, 
-                  <span *ngIf="genInfo.is_baby==true">it is a baby,</span> 
-                  <span *ngIf="genInfo.legendary==true"> it is legendary,</span>
-                  <span *ngIf="genInfo.mythical"> it is mythical, </span> <span *ngIf="genInfo.habitat!==null">its habitat is 
-                  {{ genInfo.habitat.name }}</span> <span *ngIf="genInfo.capture_rate!==null">and a capture rate of {{ genInfo.capture_rate }}</span> <span *ngIf="genInfo.evolves_from_species!==null" >, 
-                  it is the evolution of {{ genInfo.evolves_from_species.name }}</span>.
+                  <span class="text-capitalize">{{ pkemon.name }}</span> is a
+                  pokemon of type {{ pkemon.types }}, of color
+                  {{ genInfo.color.name }} and with a weight of
+                  {{ pkemon.weight }},
+                  <span *ngIf="genInfo.is_baby == true">it is a baby,</span>
+                  <span *ngIf="genInfo.legendary == true">
+                    it is legendary,</span
+                  >
+                  <span *ngIf="genInfo.mythical"> it is mythical, </span>
+                  <span *ngIf="genInfo.habitat !== null"
+                    >its habitat is {{ genInfo.habitat.name }}</span
+                  >
+                  <span *ngIf="genInfo.capture_rate !== null"
+                    >and a capture rate of {{ genInfo.capture_rate }}</span
+                  >
+                  <span *ngIf="genInfo.evolves_from_species !== null"
+                    >, it is the evolution of
+                    {{ genInfo.evolves_from_species.name }}</span
+                  >.
                 </p>
                 <p *ngFor="let text of genInfo.flavor_text_entries">
-                  <span *ngIf="text.language.name=='es'">{{text.flavor_text}}</span>
+                  <span *ngIf="text.language.name == 'es'">{{
+                    text.flavor_text
+                  }}</span>
                 </p>
               </mat-tab>
               <mat-tab label="Abilities">
                 <div class="row">
                   <div class="col-lg-4">
                     <mat-selection-list #ability [multiple]="false">
-                      <mat-list-option *ngFor="let abilitie of pkemon.abilities" [value]="abilitie.ability.url">
-                        {{abilitie.ability.name}}
+                      <mat-list-option
+                        *ngFor="let abilitie of pkemon.abilities"
+                        [value]="abilitie.ability.url"
+                      >
+                        {{ abilitie.ability.name }}
                       </mat-list-option>
                     </mat-selection-list>
                   </div>
-                  <div class="col-lg-8">
-                    <app-extra valor="{{ability.selectedOptions.selected[0]?.value}}"></app-extra>
-                  </div>
+                  <div class="col-lg-8"></div>
                 </div>
               </mat-tab>
               <mat-tab label="Moves">
@@ -115,12 +220,14 @@
   <div class="card" aria-hidden="true">
     <div class="row g-0">
       <div class="col-sm-4">
-        <img src="..." class="card-img-top" alt="...">
+        <img src="..." class="card-img-top" alt="..." />
       </div>
       <div class="col-sm-8">
         <div class="card-body">
-          <h5 class="card-title"> <span class="placeholder col-3"></span></h5>
-          <h6 class="card-subtitle mb-2 text-muted"> <span class="placeholder col-6"></span></h6>
+          <h5 class="card-title"><span class="placeholder col-3"></span></h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            <span class="placeholder col-6"></span>
+          </h6>
           <p class="card-text placeholder-glow">
             <span class="placeholder col-7"></span>
             <span class="placeholder col-4"></span>

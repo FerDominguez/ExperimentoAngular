@@ -32,7 +32,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {ObserversModule} from '@angular/cdk/observers';
 import { DetallesComponent } from './detalles/detalles.component';
-import { ExtraComponent } from './extra/extra.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +43,6 @@ import { ExtraComponent } from './extra/extra.component';
     PrincipalComponent,
     PageNoFoundComponent,
     DetallesComponent,
-    ExtraComponent
   ],
   imports: [
     BrowserModule,

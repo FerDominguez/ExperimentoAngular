@@ -23,7 +23,7 @@ abilities:any;
   }
 
   traerDetalles(x:any){
-    this.detalle.llamarApi(`https://pokeapi.co/api/v2/pokemon/${x}`).subscribe(
+    var y=this.detalle.llamarApi(`https://pokeapi.co/api/v2/pokemon/${x}`).subscribe(
       result=>{
         this.pkemon=result;
         this.pkemon.types.forEach((element:any,i:number) => {
@@ -46,6 +46,8 @@ abilities:any;
         )
       }
     )
+
+    console.log(y)
   }
 
 }
