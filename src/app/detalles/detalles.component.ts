@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApisService } from '../apis.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detalles',
@@ -10,10 +11,8 @@ import { ApisService } from '../apis.service';
 export class DetallesComponent implements OnInit {
 pkemon:any;
 genInfo:any;
-moves:any;
-abilities:any;
 
-  constructor(private _route:ActivatedRoute, private detalle:ApisService) {
+  constructor(private _route:ActivatedRoute, private detalle:ApisService, private Router:Router) {
   }
 
   ngOnInit(): void {
@@ -23,9 +22,11 @@ abilities:any;
   }
 
   traerDetalles(x:any){
-    var y=this.detalle.llamarApi(`https://pokeapi.co/api/v2/pokemon/${x}`).subscribe(
-      result=>{
+    this.detalle.llamarApi(`https://pokeapi.co/api/v2/pokemon/${x}`).subscribe({
+      next: (result) =>{
+        
         this.pkemon=result;
+        
         this.pkemon.types.forEach((element:any,i:number) => {
           this.pkemon.types[i]=element.type.name;
         });
@@ -40,14 +41,17 @@ abilities:any;
         this.pkemon.abilities.forEach((element:any) => {
           this.detalle.llamarApi(element.ability.url).subscribe(
             resultadoss=>{
+              element.ability.url=resultadoss;
             }
           )
         }
         )
+      },
+      error: (error)=>{
+        this.Router.navigateByUrl("/**")
+      }
       }
     )
-
-    console.log(y)
   }
 
 }
