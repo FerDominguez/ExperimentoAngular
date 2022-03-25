@@ -20,6 +20,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -50,6 +51,7 @@ import { DetallesComponent } from './detalles/detalles.component';
     BrowserAnimationsModule,
     LayoutModule,
     MatToolbarModule,
+    MatExpansionModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
