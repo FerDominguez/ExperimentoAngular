@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApisService } from '../apis.service';
 import { Router } from '@angular/router';
+import { newArray } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-detalles',
@@ -10,7 +11,8 @@ import { Router } from '@angular/router';
 })
 export class DetallesComponent implements OnInit {
 pkemon:any;
-genInfo:any;
+genInfo:any
+abiliti: any[] = [];
 
   constructor(private _route:ActivatedRoute, private detalle:ApisService, private Router:Router) {
   }
@@ -42,6 +44,20 @@ genInfo:any;
           this.detalle.llamarApi(element.ability.url).subscribe(
             resultadoss=>{
               element.ability.url=resultadoss;
+              element.ability.url.effect_entries.forEach((newelement:any)=>{
+                if(newelement.language.name=="en"){
+                  element.ability.url.effect_entries=newelement.effect
+                }
+              })
+              this.abiliti=[]
+              var bandera=" ";
+              element.ability.url.flavor_text_entries.forEach((newelement:any)=>{
+                if(newelement.language.name=="es" && newelement.flavor_text!==bandera){
+                  bandera=newelement.flavor_text;
+                  this.abiliti.push(newelement.flavor_text);
+                }
+              })
+              element.ability.url.flavor_text_entries=this.abiliti
             }
           )
         }

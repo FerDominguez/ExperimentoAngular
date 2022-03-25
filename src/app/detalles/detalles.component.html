@@ -186,21 +186,23 @@
                   </p>
                 </mat-tab>
                 <mat-tab label="Abilities">
-                  <div class="row">
-                    <div
-                      class="col"
-                      *ngFor="
-                        let a of pkemon.abilities;
-                        index as i;
-                        first as isFirst
-                      "
-                    >
-                      <p>
-                        {{ a.ability.url.name }} <span>{{ i }}</span
-                        ><span *ngIf="isFirst"> asas</span>
+                  <mat-accordion *ngFor="let abilitie of pkemon.abilities">
+                    <mat-expansion-panel hideToggle>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>{{
+                          abilitie.ability.url.name
+                        }}</mat-panel-title>
+                      </mat-expansion-panel-header>
+                      {{ abilitie.ability.url.effect_entries }}
+                      <p
+                        *ngFor="
+                          let te of abilitie.ability.url.flavor_text_entries
+                        "
+                      >
+                        {{ te }}
                       </p>
-                    </div>
-                  </div>
+                    </mat-expansion-panel>
+                  </mat-accordion>
                 </mat-tab>
                 <mat-tab label="Moves">
                   <p class="card-text">as</p>
@@ -215,7 +217,7 @@
 </div>
 
 <ng-template #espera>
-  <div class="card" aria-hidden="true">
+  <div class="card" aria-hidden="true" style="margin-top: 10px">
     <div class="row g-0">
       <div class="col-sm-4">
         <img src="..." class="card-img-top" alt="..." />
