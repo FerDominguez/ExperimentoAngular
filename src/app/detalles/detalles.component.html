@@ -187,7 +187,7 @@
                 </mat-tab>
                 <mat-tab label="Abilities">
                   <mat-accordion *ngFor="let abilitie of pkemon.abilities">
-                    <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel>
                       <mat-expansion-panel-header>
                         <mat-panel-title>{{
                           abilitie.ability.url.name
@@ -206,7 +206,7 @@
                 </mat-tab>
                 <mat-tab label="Moves">
                   <mat-accordion *ngFor="let move of pkemon.moves">
-                    <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel>
                       <mat-expansion-panel-header>
                         <mat-panel-title>
                           {{ move.move.url.name }}
